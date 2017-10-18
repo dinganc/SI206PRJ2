@@ -38,8 +38,8 @@ def find_urls(s):
 ## http://www.michigandaily.com/section/opinion
 
 def grab_headlines():
-    #sp = BeautifulSoup(requests.get('http://www.michigandaily.com/section/opinion',headers={'User-Agent': 'Mozilla/5.0 (Windows; U; Windows NT 5.1; hu-HU; rv:1.7.8) Gecko/20050511 Firefox/1.0.4'}).text)
-    sp=BeautifulSoup(open('opinion.html',encoding='utf-8').read())
+    sp = BeautifulSoup(requests.get('http://www.michigandaily.com/section/opinion',headers={'User-Agent': 'Mozilla/5.0 (Windows; U; Windows NT 5.1; hu-HU; rv:1.7.8) Gecko/20050511 Firefox/1.0.4'}).text)
+    #sp=BeautifulSoup(open('opinion.html',encoding='utf-8').read())
     div=sp.find('div',attrs={'class':'panel-pane pane-mostread'})
     hd=[headline.text for headline in div.find_all('a',href=True)]
     print (hd)
